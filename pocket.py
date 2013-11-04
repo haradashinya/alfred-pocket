@@ -15,7 +15,6 @@ import requests
 from bs4 import BeautifulSoup
 url = appscript.app('Safari').windows.first.current_tab.URL()
 from flask import Flask,make_response,request,redirect,session,render_template
-from models import User
 from flask.ext.sqlalchemy import SQLAlchemy
 import os
 
