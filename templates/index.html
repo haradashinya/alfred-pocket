@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+
+
+</head>
+<body>
+<h1>Welcome to alfred-pocket !</h1>
+
+<h2>What's this ? </h2>
+<p>
+It can bookmark  to pocket from  alfred easily.
+</p>
+
+<h2>How to use</h2>
+<h3>STEP 1</h3>
+<p>
+Click this <a href="/login">Authorize Pocket</a> link .
+You'll get access_token and replace ACCESS_TOKEN with it at pocket.py
+</p>
+
+
+<h3>STEP 2 </h3>
+<p>
+Write alfred's trigger like this.
+
+<pre>
+/usr/bin/python alfred-pocket/pocket.py bookmark > /dev/null 2>&1 &
+</pre>
+</p>
+
+
+<h3>STEP 3</h3>
+<p>
+You type bookmark command from alfred.
+Thats' all.
+</p>
+
+
+</body>
+</html>
