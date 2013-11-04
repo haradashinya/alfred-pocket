@@ -13,6 +13,8 @@ bookmarked.
 
 Run this command.
 
+    pip install -r requirements.txt
+
 	python pocket.py
 
 and open http://localhost:5000.
@@ -21,7 +23,7 @@ and open http://localhost:5000.
 
 ###STEP 1
 
-Click this Authorize Pocket link . You'll get access_token and replace ACCESS_TOKEN with it at pocket.py
+Click this Authorize Pocket link.
 
 ###STEP 2
 
@@ -31,3 +33,7 @@ Write alfred's trigger like this.
 ###STEP 3
 
 You type bookmark command from alfred. Thats' all.
+
+
+
+
