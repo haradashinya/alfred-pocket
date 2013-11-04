@@ -19,7 +19,6 @@ from flask.ext.sqlalchemy import SQLAlchemy
 import os
 
 CONSUMER_KEY = "19998-176bbd38240d9672cc47696a"
-ACCESS_TOKEN = "your access token"
 class G: pass
 g = G()
 g.code = ""
@@ -95,7 +94,7 @@ def add_bookmark():
     import datetime
     import time
 
-    u = db.session.query(User).filter_by(access_token =ACCESS_TOKEN).first()
+    u = db.session.query(User).first()
     r = requests.get(url)
     soup = BeautifulSoup(r.text)
     title = soup.select("title")[0].get_text()
