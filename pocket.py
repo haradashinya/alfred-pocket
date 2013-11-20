@@ -13,12 +13,49 @@ import appscript
 from appscript import *
 import requests
 from bs4 import BeautifulSoup
-url = appscript.app('Safari').windows.first.current_tab.URL()
+from Foundation import *
+
+import os
+from subprocess import Popen, PIPE
+
+
+
+def get_script_from(browser):
+    if browser == "Chrome":
+        code = 'tell application "Google Chrome" to return URL of active tab of front window'
+    elif browser == "Safari":
+        code = 'tell application "Safari" to return URL of front document'
+
+    return code
+
+
+
+
+def run_this_scpt(scpt, args=[]):
+    p = Popen(['osascript', '-'] + args, stdin=PIPE, stdout=PIPE,
+              stderr=PIPE)
+    stdout, stderr = p.communicate(scpt)
+    return stdout
+
+
+
+
+url =run_this_scpt(get_script_from("Chrome"))
+
+
+
+
+
+
+
+
+
 from flask import Flask,make_response,request,redirect,session,render_template
 from flask.ext.sqlalchemy import SQLAlchemy
 import os
 
 CONSUMER_KEY = "19998-176bbd38240d9672cc47696a"
+
 class G: pass
 g = G()
 g.code = ""
@@ -109,8 +146,11 @@ def add_bookmark():
     headers = {'content-type': 'application/json; charset=utf-8','x-accept':
                'application/json'}
     r = requests.post("https://getpocket.com/v3/add",data = json.dumps(data),headers = headers)
-    notify(u"Bookmarked",title)
+    notify(u"Bookmarked",u"%s" % url)
     return r.text
+
+
+
 
 @app.route("/callback")
 def callback():
