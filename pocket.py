@@ -40,7 +40,7 @@ def run_this_scpt(scpt, args=[]):
 
 
 
-url =run_this_scpt(get_script_from("Chrome"))
+url =run_this_scpt(get_script_from("Safari"))
 
 
 
