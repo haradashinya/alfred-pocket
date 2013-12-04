@@ -62,7 +62,7 @@ g.code = ""
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/pocket.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///pocket.db'
 db = SQLAlchemy(app)
 
 
